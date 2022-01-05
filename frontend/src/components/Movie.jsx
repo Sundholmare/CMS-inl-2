@@ -2,7 +2,6 @@ import React from 'react';
 
 const Book = ({ movie }) => {
 
-    console.log(movie)
     return (
         <div className="itemBox"> 
             <div>

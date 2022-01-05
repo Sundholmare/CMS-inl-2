@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const Main = ({ children }) => {
     const navigate = useNavigate();
@@ -8,25 +9,39 @@ const Main = ({ children }) => {
 
     useEffect(() => {
         setChosen(false);
-        console.log('hello')
-    }, [])
+        console.log(chosen, 'ping')
+    }, []);
+
 
     const handleClick = (page) => {
         navigate(page);
-        setChosen(!chosen);
+        setChosen(true);
     }
 
     return (
         <div className="home">
-            {!chosen && <div className="header">
-                <div onClick={() => handleClick('/movies')} className="moviesBtn hover">
-                    <h1 className="titleChoice">Movies</h1>
+            <div className="header">
+                <div className="moviesBtn hover">
+                    <Link 
+                    onClick={() => handleClick('/movies')} 
+                    className="scroller" 
+                    to="library" 
+                    smooth={true}>
+                        <h1 className="titleChoice">Movies</h1>
+                    </Link>
                 </div>
-                <div onClick={() => handleClick('/books')} className="booksBtn hover">
-                    <h1 className="titleChoice">Books</h1>
+
+                <div className="booksBtn hover">
+                    <Link 
+                    onClick={() => handleClick('/books')} 
+                    className="scroller" 
+                    to="library" 
+                    smooth={true} >
+                        <h1 className="titleChoice">Books</h1>
+                    </Link>
                 </div>
-            </div>}
-            <main className="mainBox">
+            </div>
+            <main id="library" className="mainBox">
                 {children}
             </main>
         </div>

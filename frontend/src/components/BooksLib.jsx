@@ -12,13 +12,14 @@ const BooksLib = () => {
             })
     }, []);
 
-    console.log(books)
-
     return (
         <div className="libContainer">
-            {books.map(book => {
-                return <Book key={book.id} book={book} />
-            })}
+            <h1 className="libHeader">Our books</h1>
+            <div className="libWrapper">
+                {books.map(book => {
+                    return <Book key={book.id} book={book} />
+                })}
+            </div>
         </div>
     )
 }

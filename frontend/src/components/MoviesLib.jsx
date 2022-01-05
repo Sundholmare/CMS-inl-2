@@ -12,14 +12,15 @@ const MooviesLib = () => {
             })
     }, []);
 
-    console.log(movies)
-
 
     return (
         <div className="libContainer">
-            {movies.map(movie => {
-                return <Movie key={movie.id} movie={movie} />
-            })}
+            <h1 className="libHeader">Our movies</h1>
+            <div className="libWrapper">
+                {movies.map(movie => {
+                    return <Movie key={movie.id} movie={movie} />
+                })}
+            </div>
         </div>
     )
 }
