@@ -20,6 +20,7 @@ const Main = ({ children }) => {
 
     return (
         <div className="home">
+            <h1 className="intro" >Welcome to the library</h1>
             <div className="header">
                 <div className="moviesBtn hover">
                     <Link 
